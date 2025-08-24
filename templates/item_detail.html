@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container-box" style="max-width: 500px; margin: 40px auto;">
+    <a href="{{ url_for('home') }}">&larr; Back to Backpack</a>
+    <h2>{{ item['name'] }}</h2>
+    {% if item['image'] %}
+    <img src="{{ url_for('static', filename='images/' ~ item['image']) }}" alt="{{ item['name'] }}" style="width:100%; margin-bottom: 1em;">
+    {% endif %}
+    <p><strong>Description:</strong> {{ item['description'] }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet Homepage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f8f9fa;
+    }
+    .title {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 0.2em;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.3em;
+      color: #555;
+      margin-bottom: 2em;
+    }
+    .container-group {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+    }
+    .pet-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .pet-container {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 2em 1.5em;
+      width: 200px;
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+    .pet-container:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+    .pet-title {
+      font-size: 1.2em;
+      margin-bottom: 1em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">Welcome to the Pet Homepage</div>
+  <div class="subtitle">Find your favorite companions: Dogs, Cats, and Others!</div>
+  <div class="container-group">
+  <a href="{{ url_for('routes.dogs') }}" class="pet-link">
+      <div class="pet-container">
+        <div class="pet-title">Dogs</div>
+        <!-- Add dog content here -->
+      </div>
+    </a>
+  <a href="{{ url_for('routes.cats') }}" class="pet-link">
+      <div class="pet-container">
+        <div class="pet-title">Cats</div>
+        <!-- Add cat content here -->
+      </div>
+    </a>
+  <a href="{{ url_for('routes.other_pets') }}" class="pet-link">
+      <div class="pet-container">
+        <div class="pet-title">Other</div>
+        <!-- Add other pet content here -->
+      </div>
+    </a>
+  </div>
+</body>
+</html>

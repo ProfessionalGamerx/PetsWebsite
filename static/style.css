@@ -1,0 +1,39 @@
+/* Container styles for Backpack App */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+}
+
+.container-row {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+  grid-template-columns:1fr 1fr 1fr;
+}
+
+.container-box {
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.container-box img{
+  width: 100%;
+}
+
+h5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 0.5em 1em;
+  margin: 0;
+  font-size: 1.5em;
+  text-align: center;
+  width: 80%;
+    }
