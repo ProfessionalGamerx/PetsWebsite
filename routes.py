@@ -8,18 +8,15 @@ routes = Blueprint('routes', __name__)
 # Define Blueprint before any route decorators
 routes = Blueprint('routes', __name__)
 
-# Route for item details page
-@routes.route('/item/<int:item_id>')
-def item_detail(item_id):
+# Route for item details page (now includes table name)
+@routes.route('/item/<table>/<int:item_id>')
+def item_detail(table, item_id):
+    if table not in ['Dogs', 'Cats', 'OtherPets']:
+        abort(404)
     db = get_db()
-    # Try to find the item in all pet tables
-    item = None
-    for table in ['Dogs', 'Cats', 'OtherPets']:
-        cur = db.execute(f'SELECT * FROM {table} WHERE id = ?', (item_id,))
-        item = cur.fetchone()
-        cur.close()
-        if item:
-            break
+    cur = db.execute(f'SELECT * FROM {table} WHERE id = ?', (item_id,))
+    item = cur.fetchone()
+    cur.close()
     if item is None:
         abort(404)
     return render_template('item_detail.html', item=item)

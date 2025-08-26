@@ -1,4 +1,10 @@
 /* Container styles for Backpack App */
+img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -36,4 +42,50 @@ h5 {
   font-size: 1.5em;
   text-align: center;
   width: 80%;
-    }
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.3em;
+  color: #555;
+  margin-bottom: 2em;
+}
+
+.container-group {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.pet-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.pet-container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 2em 1.5em;
+  width: 200px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+
+.pet-container:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+.pet-title {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  color: #333;
+}
