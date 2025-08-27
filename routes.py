@@ -60,7 +60,7 @@ def dogs():
 def other_pets():
     db = get_db()
     try:
-        cur = db.execute('SELECT * FROM OtherPets')
+        cur = db.execute('SELECT * FROM Other')
         results = cur.fetchall()
         cur.close()
     except sqlite3.OperationalError:
