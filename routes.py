@@ -5,13 +5,11 @@ from flask import g
 import sqlite3
 
 routes = Blueprint('routes', __name__)
-# Define Blueprint before any route decorators
-routes = Blueprint('routes', __name__)
 
 # Route for item details page (now includes table name)
 @routes.route('/item/<table>/<int:item_id>')
 def item_detail(table, item_id):
-    if table not in ['Dogs', 'Cats', 'OtherPets']:
+    if table not in ['Dogs', 'Cats', 'Other']:
         abort(404)
     db = get_db()
     cur = db.execute(f'SELECT * FROM {table} WHERE id = ?', (item_id,))

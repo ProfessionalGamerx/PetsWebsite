@@ -6,27 +6,33 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+  {% extends "layout.html" %}
+  {% block content %}
+  <input type="text" id="search-input" placeholder="Search for a pet.." class="search-input" onkeyup="filterItems()">
+  <script src="static/script.js"></script>
+
   <div class="title">Welcome to the Pet Homepage</div>
   <div class="subtitle">Find your favorite companions: Dogs, Cats, and Others!</div>
   <div class="container-group">
-  <a href="{{ url_for('routes.dogs') }}" class="pet-link">
+    <a href="{{ url_for('routes.dogs') }}" class="pet-link">
       <div class="pet-container">
         <div class="pet-title">Dogs</div>
         <!-- Add dog content here -->
       </div>
     </a>
-  <a href="{{ url_for('routes.cats') }}" class="pet-link">
+    <a href="{{ url_for('routes.cats') }}" class="pet-link">
       <div class="pet-container">
         <div class="pet-title">Cats</div>
         <!-- Add cat content here -->
       </div>
     </a>
-  <a href="{{ url_for('routes.other_pets') }}" class="pet-link">
+    <a href="{{ url_for('routes.other_pets') }}" class="pet-link">
       <div class="pet-container">
         <div class="pet-title">Other</div>
         <!-- Add other pet content here -->
       </div>
     </a>
   </div>
+  {% endblock %}
 </body>
 </html>
