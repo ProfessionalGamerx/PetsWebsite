@@ -47,7 +47,13 @@ app.register_blueprint(routes)
 # Route for the home page
 @app.route("/", endpoint="home")
 def home():
-    return render_template("index.html")
+    db = get_db()
+    names = []
+    for table in ["Dogs", "Cats", "Other"]:
+        cur = db.execute(f"SELECT name FROM {table}")
+        names += [row["name"] for row in cur.fetchall()]
+        cur.close()
+    return render_template("index.html", pet_names=names)
 ###########################################################################################################
 
 # Run the Flask app in debug mode if this file is executed directly

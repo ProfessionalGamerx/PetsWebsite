@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Pet Homepage</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-  {% extends "layout.html" %}
-  {% block content %}
-  <input type="text" id="search-input" placeholder="Search for a pet.." class="search-input" onkeyup="filterItems()">
-  <script src="static/script.js"></script>
-
+{% extends "layout.html" %}
+{% block content %}
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Search for a pet.." class="search-input" autocomplete="off" oninput="showSuggestions()">
+    <div id="autocomplete-list" class="autocomplete-items"></div>
+  </div>
   <div class="title">Welcome to the Pet Homepage</div>
   <div class="subtitle">Find your favorite companions: Dogs, Cats, and Others!</div>
   <div class="container-group">
@@ -33,6 +26,10 @@
       </div>
     </a>
   </div>
-  {% endblock %}
+  <script>
+    const petNames = {{ pet_names|tojson|safe }};
+  </script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
 </body>
 </html>

@@ -1,10 +1,25 @@
 # Move imports to the top
-from flask import Blueprint, render_template, abort
+from flask import Blueprint, render_template, abort, request, jsonify
 from flask import current_app as app
 from flask import g
 import sqlite3
 
 routes = Blueprint('routes', __name__)
+
+# Route to find pet by name and return its table and id
+@routes.route('/find_pet')
+def find_pet():
+    name = request.args.get('name')
+    if not name:
+        return jsonify({}), 404
+    db = get_db()
+    for table in ['Dogs', 'Cats', 'Other']:
+        cur = db.execute(f'SELECT id FROM {table} WHERE LOWER(name) = ?', (name.lower(),))
+        row = cur.fetchone()
+        cur.close()
+        if row:
+            return jsonify({'table': table, 'id': row['id']})
+    return jsonify({}), 404
 
 # Route for item details page (now includes table name)
 @routes.route('/item/<table>/<int:item_id>')

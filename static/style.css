@@ -183,6 +183,59 @@ a:hover, .btn:hover {
   min-height: 100vh;
 }
 
+/* --- Autocomplete Styles --- */
+.search-container {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 1.5em auto;
+}
+
+.autocomplete-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0 0 8px 8px;
+  z-index: 99;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 2px;
+  box-shadow: 0 2px 8px rgba(100,116,139,0.10);
+}
+.autocomplete-item {
+  padding: 0.5em 1em;
+  cursor: pointer;
+  font-size: 1em;
+  color: #334155;
+  background: #fff;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.15s;
+}
+.autocomplete-item:last-child {
+  border-bottom: none;
+}
+.autocomplete-item:hover {
+  background: #f1f5f9;
+}
+
+.search-input {
+  width: 250px;
+  padding: 0.7em 1em;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 1em;
+  margin: 1.5em 0 1em 0;
+  box-shadow: 0 1px 4px rgba(100,116,139,0.08);
+  outline: none;
+  transition: border 0.15s;
+}
+.search-input:focus {
+  border: 1.5px solid #6366f1;
+}
+
 /* --- Responsive --- */
 @media (max-width: 700px) {
   .container-group {
