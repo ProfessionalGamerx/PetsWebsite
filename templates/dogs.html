@@ -2,19 +2,17 @@
 {% block content %}
 
 <h1>Dogs</h1>
-<p>Meet our wonderful canine companions!</p>
+<p>Meet our lovable canine companions!</p>
 
 <div class="container-row">
   {% if results %}
     {% for item in results %}
-      <div class="container-box" style="position: relative; display: inline-block;">
-        <img src="{{ url_for('static', filename='images/' ~ item['image']) }}" alt="{{ item['name'] }}" style="display: block; width: 100%;">
-        <h5>
-          <a href="{{ url_for('routes.item_detail', table='Dogs', item_id=item['id']) }}" style="color:inherit; text-decoration:none;">
-            {{ item['name'] }}
-          </a>
-        </h5>
-      </div>
+      <a href="{{ url_for('routes.item_detail', table='Dogs', item_id=item['id']) }}" style="color:inherit; text-decoration:none;">
+        <div class="container-box" style="position: relative; display: inline-block; cursor:pointer;">
+          <img src="{{ url_for('static', filename='images/' ~ item['image']) }}" alt="{{ item['name'] }}" style="display: block; width: 100%;">
+          <h5>{{ item['name'] }}</h5>
+        </div>
+      </a>
     {% endfor %}
   {% else %}
     <p>No dogs found in the database.</p>

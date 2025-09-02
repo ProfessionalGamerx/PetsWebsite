@@ -33,10 +33,28 @@ body {
   margin-bottom: 2em;
 }
 
-.pet-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+
+/* --- Pet stuff --- */
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  color: #4f46e5;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  color: #4f46e5;
+  text-align: center;
+}
+
+p {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  color: purple;
+  text-align: center;
 }
 
 .pet-container {

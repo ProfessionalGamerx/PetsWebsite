@@ -1,5 +1,3 @@
-
-# Import necessary modules from Flask and sqlite3 for web app and database
 from flask import Flask, render_template, g
 import sqlite3
 
@@ -54,6 +52,7 @@ def home():
         names += [row["name"] for row in cur.fetchall()]
         cur.close()
     return render_template("index.html", pet_names=names)
+
 ###########################################################################################################
 
 # Run the Flask app in debug mode if this file is executed directly

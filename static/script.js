@@ -34,7 +34,7 @@ function showSuggestions() {
     });
 }
 
-// Optionally, close dropdown if user clicks outside
+// Closes dropdown if user clicks outside
 window.addEventListener('click', function(e) {
     if (!e.target.matches('#search-input')) {
         document.getElementById('autocomplete-list').innerHTML = '';
