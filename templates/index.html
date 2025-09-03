@@ -30,6 +30,21 @@
     </a>
   </div>
 
+  <div class="container-group" style="margin-top: 32px;">
+    <a href="{{ url_for('routes.breeder_price') }}" class="pet-link">
+      <div class="pet-container price-category">
+        <div class="pet-title">Breeder Price</div>
+        <div class="pet-desc">See the price for purchasing from a breeder.</div>
+      </div>
+    </a>
+    <a href="{{ url_for('routes.adoption_price') }}" class="pet-link">
+      <div class="pet-container price-category">
+        <div class="pet-title">Adoption Price</div>
+        <div class="pet-desc">See the price for adopting from a shelter or rescue.</div>
+      </div>
+    </a>
+  </div>
+
 
   <script>
     const petNames = {{ pet_names|tojson|safe }};

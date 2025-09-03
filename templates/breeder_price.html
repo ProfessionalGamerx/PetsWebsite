@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>All Pets by Breeder Price</h1>
+<p>See all available pets and their breeder prices.</p>
+<div class="container-row">
+  {% if pets %}
+    {% for pet in pets %}
+      <div class="container-box">
+        <img src="{{ url_for('static', filename='images/' ~ pet['image']) }}" alt="{{ pet['name'] }}" style="width:100%;">
+        <h5>{{ pet['name'] }}</h5>
+        <div>Breeder Price: ${{ pet['breeder_price'] }}</div>
+        <div>Type: {{ pet['type'] }}</div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No pets found.</p>
+  {% endif %}
+</div>
+{% endblock %}

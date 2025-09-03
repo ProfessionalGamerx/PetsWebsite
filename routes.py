@@ -79,3 +79,36 @@ def other_pets():
     except sqlite3.OperationalError:
         results = []
     return render_template('other_pets.html', results=results)
+
+
+# Route for all pets by breeder price
+@routes.route('/breeder_price')
+def breeder_price():
+    db = get_db()
+    pets = []
+    for table, pet_type in [('Dogs', 'Dog'), ('Cats', 'Cat'), ('Other', 'Other')]:
+        try:
+            cur = db.execute(f'SELECT *, "{pet_type}" as type FROM {table}')
+            pets += cur.fetchall()
+            cur.close()
+        except sqlite3.OperationalError:
+            continue
+    pets = [pet for pet in pets if pet['breeder_price'] is not None]
+    pets.sort(key=lambda x: float(x['breeder_price']) if x['breeder_price'] else float('inf'))
+    return render_template('breeder_price.html', pets=pets)
+
+# Route for all pets by adoption price
+@routes.route('/adoption_price')
+def adoption_price():
+    db = get_db()
+    pets = []
+    for table, pet_type in [('Dogs', 'Dog'), ('Cats', 'Cat'), ('Other', 'Other')]:
+        try:
+            cur = db.execute(f'SELECT *, "{pet_type}" as type FROM {table}')
+            pets += cur.fetchall()
+            cur.close()
+        except sqlite3.OperationalError:
+            continue
+    pets = [pet for pet in pets if pet['adoption_price'] is not None]
+    pets.sort(key=lambda x: float(x['adoption_price']) if x['adoption_price'] else float('inf'))
+    return render_template('adoption_price.html', pets=pets)
