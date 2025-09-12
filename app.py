@@ -1,8 +1,6 @@
 from flask import Flask, render_template, g
 import sqlite3
 
-
-# Create the Flask application
 app = Flask(__name__)
 
 
@@ -42,6 +40,7 @@ def close_connection(exception):
 from routes import routes
 app.register_blueprint(routes)
 
+
 # Route for the home page
 @app.route("/", endpoint="home")
 def home():
@@ -52,6 +51,7 @@ def home():
         names += [row["name"] for row in cur.fetchall()]
         cur.close()
     return render_template("index.html", pet_names=names)
+
 
 ###########################################################################################################
 

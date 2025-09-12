@@ -165,6 +165,7 @@ a:hover, .btn:hover {
   align-items: center;
   padding-top: 2.5em;
   box-shadow: 2px 0 12px rgba(79,70,229,0.10);
+  /* z-index stacks overlapping HTML elements in the z-axis as long as the position value is not static */
   z-index: 100;
 }
 .sidebar-title {

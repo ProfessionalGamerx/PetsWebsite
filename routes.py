@@ -21,7 +21,7 @@ def find_pet():
             return jsonify({'table': table, 'id': row['id']})
     return jsonify({}), 404
 
-# Route for item details page (now includes table name)
+# Route for item details page
 @routes.route('/item/<table>/<int:item_id>')
 def item_detail(table, item_id):
     if table not in ['Dogs', 'Cats', 'Other']:
@@ -34,14 +34,13 @@ def item_detail(table, item_id):
         abort(404)
     return render_template('item_detail.html', item=item)
 
-# Helper to get DB connection (reuse from app.py if possible)
+# Helper to get database connection im gay
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
         db = g._database = sqlite3.connect('Backpack.db')
         db.row_factory = sqlite3.Row
     return db
-
 
 
 # Route for cats page
@@ -56,6 +55,7 @@ def cats():
         results = []
     return render_template('cats.html', results=results)
 
+
 # Route for dogs page
 @routes.route('/dogs')
 def dogs():
@@ -67,6 +67,7 @@ def dogs():
     except sqlite3.OperationalError:
         results = []
     return render_template('dogs.html', results=results)
+
 
 # Route for other pets page
 @routes.route('/other_pets')
@@ -96,6 +97,7 @@ def breeder_price():
     pets = [pet for pet in pets if pet['breeder_price'] is not None]
     pets.sort(key=lambda x: float(x['breeder_price']) if x['breeder_price'] else float('inf'))
     return render_template('breeder_price.html', pets=pets)
+
 
 # Route for all pets by adoption price
 @routes.route('/adoption_price')
