@@ -1,14 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
 
-  <div class="search-container">
-    <input type="text" id="search-input" placeholder="Search for a pet.." class="search-input" autocomplete="off" oninput="showSuggestions()">
-    <div id="autocomplete-list" class="autocomplete-items"></div>
-  </div>
+  <header class="top-header">
+    <div class="header-left">
+      <div class="title">Paws and Purrs</div>
+      <div class="subtitle">A pet information website.</div>
+    </div>
+    <div class="header-search">
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for a pet.." class="search-input" autocomplete="off" oninput="showSuggestions()">
+        <div id="autocomplete-list" class="autocomplete-items"></div>
+      </div>
+    </div>
+  </header>
 
-
-  <div class="title">Paws and Purrs</div>
-  <div class="subtitle">A pet information website.</div>
   <div class="container-group">
 
     <a href="{{ url_for('routes.dogs') }}" class="pet-link">

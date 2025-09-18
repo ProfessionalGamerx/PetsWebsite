@@ -13,7 +13,6 @@ bcrypt = Bcrypt(app)
 DATABASE = 'Backpack.db'
 
 
-
 # Helper function to query the database
 # query: SQL query string
 # args: parameters for the query
@@ -41,7 +40,6 @@ def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
-
 
 
 app.register_blueprint(routes)
