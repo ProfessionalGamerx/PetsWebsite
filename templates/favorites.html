@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="favorites-container">
+  <h2>Your Favorite Pets</h2>
+  {% if pets %}
+    <div class="container-group">
+      {% for pet in pets %}
+        <div class="pet-container">
+          <div class="pet-title">{{ pet.data.name }}</div>
+          {% if pet.data.image %}
+            <img src="{{ url_for('static', filename='images/' + pet.data.image) }}" alt="{{ pet.data.name }}" />
+          {% endif %}
+          <form method="POST" action="{{ url_for('unfavorite_pet', pet_type=pet.type, pet_id=pet.data.id) }}">
+            <button type="submit" class="btn">Remove from Favorites</button>
+          </form>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>You have no favorite pets yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

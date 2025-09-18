@@ -7,12 +7,17 @@
 <div class="container-row">
   {% if results %}
     {% for item in results %}
-      <a href="{{ url_for('routes.item_detail', table='Dogs', item_id=item['id']) }}" style="color:inherit; text-decoration:none;">
-        <div class="container-box" style="position: relative; display: inline-block; cursor:pointer;">
+      <div class="container-box" style="position: relative; display: inline-block; cursor:pointer;">
+        <a href="{{ url_for('routes.item_detail', table='Dogs', item_id=item['id']) }}" style="color:inherit; text-decoration:none;">
           <img src="{{ url_for('static', filename='images/' ~ item['image']) }}" alt="{{ item['name'] }}" style="display: block; width: 100%;">
           <h5>{{ item['name'] }}</h5>
-        </div>
-      </a>
+        </a>
+        {% if session.get('user_id') %}
+          <form method="POST" action="{{ url_for('favorite_pet', pet_type='Dog', pet_id=item['id']) }}" style="margin-top: 0.5em;">
+            <button type="submit" class="btn">&#10084; Favorite</button>
+          </form>
+        {% endif %}
+      </div>
     {% endfor %}
   {% else %}
     <p>No dogs found in the database.</p>

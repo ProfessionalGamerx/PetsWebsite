@@ -14,8 +14,13 @@
         <a href="{{ url_for('routes.cats') }}">Cats</a>
         <a href="{{ url_for('routes.dogs') }}">Dogs</a>
         <a href="{{ url_for('routes.other_pets') }}">Other Pets</a>
-        <a href="{{ url_for('login') }}">Login</a>
-        <a href="{{ url_for('register') }}">Register</a>
+        {% if session.get('user_id') %}
+          <a href="{{ url_for('favorites') }}">Favorites</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+          <a href="{{ url_for('login') }}">Login</a>
+          <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
       </nav>
     </div>
     <main class="main-content">
