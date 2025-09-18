@@ -1,9 +1,52 @@
+/* --- Auth Forms --- */
+.auth-form-container {
+  max-width: 350px;
+  margin: 3em auto 0 auto;
+  background: #F9F4F8;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #DEC9F033;
+  padding: 2em 2em 1.5em 2em;
+  color: #6B4F7A;
+  text-align: center;
+}
+.auth-form-container h2 {
+  margin-bottom: 1em;
+  color: #B388D9;
+}
+.form-group {
+  margin-bottom: 1.2em;
+  text-align: left;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.4em;
+  color: #A48CB6;
+  font-weight: 500;
+}
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  border: 1px solid #E2BEE6;
+  font-size: 1em;
+  box-shadow: 0 1px 4px #DEC9F033;
+  outline: none;
+  margin-bottom: 0.2em;
+  background: #fff;
+  color: #6B4F7A;
+  transition: border 0.15s;
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+  border: 1.5px solid #B388D9;
+}
 /* --- Top Header Styles --- */
 .top-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #DEC9F0;
+  background: #E2BEE6;
   padding: 1.5em 2.5em 1.2em 2.5em;
   border-radius: 0 0 18px 18px;
   box-shadow: 0 2px 12px #DEC9F033;
@@ -25,6 +68,7 @@
   margin: 0 0 0.2em 0;
   font-size: 2.3em;
   text-align: left;
+  color: #6B4F7A;
 }
 .top-header .subtitle {
   margin: 0;
@@ -64,10 +108,10 @@ body {
   font-size: 3em;
   margin-top: 1.5em;
   margin-bottom: 0.2em;
-  color: #B388D9;
+  color: #6B4F7A;
   letter-spacing: 2px;
   font-weight: 700;
-  text-shadow: 0 2px 8px #DEC9F0;
+  text-shadow: 0 2px 8px #E2BEE6;
 }
 
 .subtitle {
@@ -110,18 +154,19 @@ p {
 }
 
 .pet-container {
-  background: #F8E7FA;
+  background: #DEC9F0;
   border-radius: 18px;
-  box-shadow: 0 4px 24px #DEC9F033, 0 1.5px 6px #F2CAEA22;
+  box-shadow: 0 4px 24px #E2BEE6, 0 1.5px 6px #C9A4CF;
   padding: 2.5em 1.5em 1.5em 1.5em;
   width: 240px;
   text-align: center;
   transition: box-shadow 0.2s, transform 0.2s;
   position: relative;
   overflow: hidden;
+  color: #B388D9;
 }
 .pet-container:hover {
-  box-shadow: 0 8px 32px #F2CAEA55, 0 2px 8px #D8BEE544;
+  box-shadow: 0 8px 32px #DEC9F0, 0 2px 8px #E2BEE6;
   transform: translateY(-6px) scale(1.03);
   cursor: pointer;
 }
@@ -144,17 +189,18 @@ p {
 
 .container-box {
   border: none;
-  background: #F9F4F8;
+  background: #DEC9F0;
   border-radius: 16px;
-  box-shadow: 0 2px 12px #DEC9F033, 0 1px 4px #F2CAEA22;
+  box-shadow: 0 2px 12px #E2BEE6, 0 1px 4px #C9A4CF;
   padding: 1.5em 1em 1em 1em;
   transition: box-shadow 0.2s, transform 0.2s;
   position: relative;
   overflow: hidden;
   text-align: center;
+  color: #B388D9;
 }
 .container-box:hover {
-  box-shadow: 0 6px 24px #F2CAEA55, 0 2px 8px #D8BEE544;
+  box-shadow: 0 6px 24px #DEC9F0, 0 2px 8px #E2BEE6;
   transform: translateY(-4px) scale(1.02);
 }
 
@@ -210,13 +256,13 @@ a:hover, .btn:hover {
   left: 0;
   width: 210px;
   height: 100vh;
-  background: linear-gradient(120deg, #F2DAED 0%, #F2CAEA 100%);
+  background: linear-gradient(120deg, #A48CB6 0%, #B388D9 100%);
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 2.5em;
-  box-shadow: 2px 0 12px #DEC9F033;
+  box-shadow: 2px 0 12px #A48CB6;
   z-index: 100;
 }
 .sidebar-title {
@@ -326,7 +372,8 @@ a:hover, .btn:hover {
     border-radius: 8px;
     margin: 0 0.2em;
   }
-  .main-content {
-    margin-left: 0;
-    padding: 1em 0.5em 1em 0.5em;
+    .main-content {
+      margin-left: 0;
+      padding: 1em 0.5em 1em 0.5em;
+    }
   }

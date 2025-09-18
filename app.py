@@ -7,7 +7,12 @@ from flask_bcrypt import Bcrypt
 from routes import routes
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
+# Secret key for session management,
+# for future me all this does basically is it keeps the users login info safe
+# and secure. Flask uses it to encrypt session data and protect against
+# certain attacks like CSRF but mainly it's required for user sessions to work.
+# I've generated a random string of 100 characters to use as the secret key.
+app.secret_key = 'dNaA4BYy._VemwghLk]!LN)UAP7nGFaz0xkWn6_yi7^sp6%*pX=Mppau2EMwZX_*Pc)PP^tZ,Lc8H7LH!LvZnhpf!_>d#39puijt'
 bcrypt = Bcrypt(app)
 # Path to the SQLite database file
 DATABASE = 'Backpack.db'
