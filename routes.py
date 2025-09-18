@@ -27,7 +27,7 @@ def find_pet():
     return jsonify({}), 404
 
 # Route for item details page
-  
+
 
 @routes.route('/item/<table>/<int:item_id>')
 def item_detail(table, item_id):
@@ -52,7 +52,7 @@ def get_db():
 
 
 # Route for cats page
-  
+
 
 @routes.route('/cats')
 def cats():
@@ -67,7 +67,7 @@ def cats():
 
 
 # Route for dogs page
-  
+
 
 @routes.route('/dogs')
 def dogs():
@@ -82,7 +82,7 @@ def dogs():
 
 
 # Route for other pets page
-  
+
 
 @routes.route('/other_pets')
 def other_pets():
@@ -97,7 +97,7 @@ def other_pets():
 
 
 # Route for all pets by breeder price
-  
+
 
 @routes.route('/breeder_price')
 def breeder_price():
@@ -117,6 +117,7 @@ def breeder_price():
     pets = [pet for pet in pets if pet['breeder_price'] is not None]
     pets.sort(
         key=(
+            # Sort by breeder price
             lambda x: float(x['breeder_price'])
             if x['breeder_price'] else float('inf')
         )
@@ -125,7 +126,7 @@ def breeder_price():
 
 
 # Route for all pets by adoption price
-  
+
 
 @routes.route('/adoption_price')
 def adoption_price():
@@ -145,6 +146,7 @@ def adoption_price():
     pets = [pet for pet in pets if pet['adoption_price'] is not None]
     pets.sort(
         key=(
+            # Sort by adoption price
             lambda x: float(x['adoption_price'])
             if x['adoption_price'] else float('inf')
         )
